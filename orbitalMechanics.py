@@ -236,6 +236,18 @@ def orbitalPeriod_fromRad(r, muPlanet = 3.986e14):
     t = 2*np.pi*np.sqrt(r**3/muPlanet)
     return t
 
+def vis_viva(r, a, muPlanet = 3.986e14):
+    """
+    Get velocity from vis-viva equation
+    Outputs velocity of orbiting object
+    inputs (r, a, muPlanet = 3.986e14)
+    r: distance between bodies (m)
+    a: semi major axis (m)
+    muPlanet: gravitation parameter of planet. Earth is default no input needed unless it's another body
+    """
+    v = np.sqrt(muPlanet * (2/r - 1/a))
+    return v
+
 ####################### Eclipse Calculation #######################
 
 def worstCaseEclipse(alt, rPlanet = 6378.1e3, muPlanet = 3.986e14):
